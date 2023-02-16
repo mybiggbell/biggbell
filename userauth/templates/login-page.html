@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} register{% endblock title %}
+{% block main_contains %}
+<div class="container">
+ <div class="row my-3">
+  <div class="col-sm-6 offset-sm-3">
+      <h3>Login</h3>
+      {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+      <hr>
+      <form action="" method="post" novalidate class="shadow p-5">
+     {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email</label>
+            <input type="email" name='email' class="form-control" id="exampleFormControlInput1" placeholder="">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Password</label>
+            <input type="password" name='password' class="form-control" id="exampleFormControlInput1" placeholder="">
+        </div>
+     
+     
+
+
+     <input type="submit" class="btn btn-primary mt-4" value="Login">
+     <br>
+     <div class="text-center text-primary fw-bold"><small>already have account ? <a href="/" class="text-danger">Login</a> </small></div>
+		 
+      
+    </form>
+  </div>
+ </div>
+</div>
+{% endblock main_contains %}
+Footer

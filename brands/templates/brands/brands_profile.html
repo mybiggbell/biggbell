@@ -1,0 +1,49 @@
+{% extends 'brands/base.html' %}
+{% load static %}
+
+
+{% block main_contains %}
+    <style>
+        *{
+            background-color : #f6f7fa;
+            color:#13253a;
+        }
+        .social-account{
+            display:flex;
+            justify-content: space-around;
+            flex-flow: wrap;
+        }
+        .profile-details{
+            display: flex;
+            justify-content: space-between;
+             
+        }
+    </style>
+    {% include 'brands/navbar.html' %}
+
+    <div class="container">
+        
+         <div class="profile-details">
+            <div class="left">
+                <h2>{{request.user.first_name}} {{request.user.last_name}}</h2>
+                <h6>Email Verify : {{request.user.email_verified}} </h6>
+                <h6>contact number : {{request.user.contact_number}} </h6>
+                <h6>Gender : {{request.user.gender}} </h6>
+                <h6>Country name : {{request.user.country_name}} </h6>
+            </div>
+            <div class="right">
+                <h1>User some Data</h1>
+            </div>
+         </div>
+         
+
+         </div>
+         <hr>
+         <div class="user-details mt-3">
+            <h4>Total Project You Posted :- {{project_count}}  <a href="{% url 'project_list' %}">See details</a></h4>
+
+         </div>
+    </div>
+
+     
+{% endblock main_contains %}

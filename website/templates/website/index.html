@@ -1,0 +1,90 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block main_contains %}
+    <style>
+        .main_post{
+            height: 90vh;
+            justify-content: center;
+            align-items: center;
+            padding: 4%;
+        }
+        *{
+            background-color: #FFFFFF;
+            
+        }
+        .title-left{
+            width: 70%;
+            height: 100%;
+            margin-top: 10%;
+            
+        }
+        .sub-title{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-decoration-line: underline;
+        }
+        
+        .two-btn{
+            margin-top: 7%;
+            display: flex;
+            justify-content: space-between;
+            height: 10%;
+            width: 51%;
+        }
+        .down-main-div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .down-title{
+            border-bottom-style: solid;
+            width: 20%; 
+            text-align: center;
+        }
+        .about-us-desc{
+            margin-top: 2%;
+            width: 75%;
+        }
+    </style>
+    {% include 'website/navBar1.html' %}
+    <div class="main_post d-flex" style="background-color: #FFFFFF;">
+        <div class="title-left">
+            <h1 style="text-decoration-line: underline; font-size: 2.25rem;
+            line-height: 2.5rem;
+            font-weight: 1000; color:#2B6AFF" >Hire the best Creators for any job, online.</h1>
+            <div class="sub-title" style="font-weight: bold;">
+                <li>World's largest freelance marketplace</li>
+                <li>Any job you can possibly think of</li>
+                <li>Save up to 90% & get quotes for free</li>
+                <div class="two-btn">
+                    <a class="btn btn-success" style="background-color:#2277FF" href="{% url 'brands_register' %}">Brands Register</a>
+                    <a class="btn btn-success" href="{% url 'creator_register' %}">Creator Register</a>
+                </div>
+             </div>
+        </div>
+       
+    </div>
+    <div class="down-main-div " style="background-color: #FFFFFF;">
+        <div class="down-title" style="background-color: #FFFFFF;">
+            <h1>About Us</h1>
+        </div>
+        <div class="about-us-desc" style="background-color: #FFFFFF;">
+            <p style="background-color: #FFFFFF;"> "Biggbell" is an all-in-one influencer marketing marketplace connecting businesses with social media influencers. Our mission is to make influencer marketing simple, effective, and accessible to everyone.
+
+                With our platform, businesses can discover, collaborate, and track the performance of their campaigns with top influencers across a variety of niches, including fashion, beauty, lifestyle, travel, and more.
+                
+                Our advanced search and filter system allows businesses to easily find the perfect influencer for their campaigns based on engagement rate, location, audience demographics, and more.
+                
+                At Biggbell, we believe in the power of authenticity and transparency. Our platform is designed to ensure that all collaborations are genuine, with detailed influencer profiles, past sponsored posts, and the option to view their content and audience insights.
+                
+                Our team of experts is here to help businesses every step of the way, from finding the right influencer to managing the campaign and measuring its success. With Biggbell, businesses can focus on what really matters – growing their brand and reaching new audiences.
+                
+                Join us today and take your influencer marketing to the next level!</p>
+        </div>
+    </div>
+
+{% endblock main_contains %}

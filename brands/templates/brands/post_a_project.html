@@ -1,0 +1,56 @@
+{% extends 'brands/base.html' %}
+
+
+{% block main_contains %}
+<style>
+    .main-box{
+       
+        background: linear-gradient(55deg,#164188,#007fed);
+    }
+    .upper-box{
+        
+    }
+    .image-box{
+        max-width: 25%;
+        height: 25%;
+    }
+</style>
+    <div class="main-upper ">
+      <div class="main-box">
+            <div class="container upper-box shadow p-5 text-center   fw-bold" style="max-width: 70%;">
+                <img class="image-box" src="https://media.licdn.com/dms/image/C4D0BAQGciffhkWj17w/company-logo_200_200/0/1675534493187?e=1684368000&v=beta&t=9cIFHpIdut_HtYqgeLWuwYuY_w1uu0JpKZl9P0qL--8" alt="">
+                <h1>Tell us what you need done</h1>
+                <span>Contact Creators within minutes. View profiles, ratings, portfolios and chat with them. Pay the Creators only when you are 100% satisfied with their work.</span>
+            </div>
+        </div>
+        <div class="container form-box col-sm-6 offset-sm-3 mt-5 shadow p-5">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label"><h3>name for your project</h3></label>
+                    <input type="text" name="project_name" class="form-control" id="exampleFormControlInput1" placeholder="">
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label"><h3>Tell us more about your project</h3></label>
+                    <textarea class="form-control" name="detail_about_project" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label"><h3>total cost of Project</h3></label>
+                    <input type="number" class="form-control"  name="total_cost" id="exampleFormControlInput1" placeholder="">
+                </div>
+                <div class="mb-3">
+                    <label for="formFile" class="form-label"><span>Drag & drop any images or documents that might be helpful in explaining your brief here</span></label>
+                    <input class="form-control" name="project_file" type="file" id="formFile">
+                  </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label"><h3>What type of Creators required?</h3></label>
+                    <input type="text" name="type_of_creator" class="form-control" id="exampleFormControlInput1" placeholder="e.g Sport , Education , blog , type 3-5 keywords">
+                </div>
+                <input type="submit" class="btn btn-success btn-lg mt-4" value="Yes Post my Project">
+            </form>
+        </div>
+    </div>
+
+
+{% endblock main_contains %}

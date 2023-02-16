@@ -1,0 +1,61 @@
+{% extends 'brands/base.html' %}
+{% load static %}
+
+
+{% block main_contains %}
+    <style>
+        background-color : #f6f7fa;
+        color:#13253a;
+    </style>
+    {% include 'brands/navbar.html' %}
+
+    <div class="container">
+        
+        <div class="card">
+            {% if projects %}
+                 
+                    <div class="card-header">
+                        Title:- {{projects.project_name}}
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Low Cost:- {{projects.total_cost}}</h5>
+                        <p class="card-text">Type of Youtube {{projects.detail_about_project}}</p>
+                        <a href="{{projects.project_file.url}}" class="btn btn-primary">Check File</a>
+                    </div>
+                    <p>
+                        <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                          Check Submission
+                        </a>
+                        
+                      </p>
+                      <div class="collapse" id="collapseExample">
+                         
+                     {% for cre in projects.get_creator %}
+
+                          <hr>
+                          <div class="card card-body mt-3">
+                                <h5>{{cre.creator}}</h5>
+                                 <a href="{% url 'creator_profile_for_brand' cre.creator.id %}" class="btn btn-success">Profile</a>
+                                 <p>{{cre.creator_note}}</p>
+                                {% if cre.is_approval == 'complete' %}
+                                    <h6>Project is Done</h6>
+                                {% elif cre.is_approval == 'Select' %}
+                                    <h6>{{cre.is_approval}}</h6>
+                                    <a href="{% url 'complete_done' cre.id %}" class="btn btn-danger">complete</a>
+                                {% else %}
+                                    <h6>{{cre.is_approval}}</h6>
+                                    <a href="{% url 'accept' cre.id %}" class="btn btn-danger">Accept</a>
+                                {% endif %}
+                            </div>
+                             {% endfor %}  
+                      </div>
+                
+            {% else %}
+                    <h2 style="margin-left:45%">No Data</h2>
+            {% endif %}
+        </div>
+
+    </div>
+
+     
+{% endblock main_contains %}

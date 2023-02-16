@@ -1,0 +1,51 @@
+{% extends 'brands/base.html' %}
+{% load static %}
+
+
+{% block main_contains %}
+    <style>
+        background-color : #ECF0F1;
+        color:#13253a;
+    </style>
+    {% include 'brands/navbar.html' %}
+
+    <div class="container">
+        <div class="filter-div " style="margin:2%">
+            <form action="./" method="post" class="d-flex" >
+                {% csrf_token %}
+                <input type="number" name="min_value"   class="form-control" placeholder="Enter range MIN">
+                <input type="number" name="max_value" style="margin-left:1%" class="form-control"  placeholder="Enter range MAX">
+                <input type="text" name="catergory" style="margin-left:1%" class="form-control"  placeholder="Category of Creator">
+                <input type="submit" style="margin-left:1%" class="btn btn-warning" text="sumbit">
+            </form>
+             
+        </div>
+        {% if creators %}
+        {% for creator in creators %}
+        <div class="card mt-3">
+                    <div class="card-header" >
+                        Title: <span style="text-decoration-line: underline;">{{creator.youtube_name}}</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="row justify-content-start">
+                            <div class="col-10">
+                                <h5 class="card-title">Low Cost:- {{creator.low_Budget}} - High Cost {{creator.low_Budget}}</h5>
+                                <p class="card-text">Type of Youtube {{creator.type_of_youtube}}</p>
+                                <a href="{% url 'creator_profile_for_brand' creator.id %}" class="btn btn-primary">Check Profile</a>  
+                            </div>
+                            <div class="col-2">
+                                <img src="{{creator.profile_img.url}}" alt="" width="60" height="100" style="border-radius: 20%;">
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                    <h2 style="margin-left:45%">No Data</h2>
+            {% endif %}
+
+    </div>
+
+     
+{% endblock main_contains %}

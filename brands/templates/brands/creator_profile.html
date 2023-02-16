@@ -1,0 +1,79 @@
+{% extends 'brands/base.html' %}
+{% load static %}
+
+
+{% block main_contains %}
+    <style>
+        *{
+            background-color : #f6f7fa;
+            color:#13253a;
+        }
+        .social-account{
+            display:flex;
+            justify-content: space-around;
+            flex-flow: wrap;
+        }
+        .profile-details{
+            display: flex;
+            justify-content: space-between;
+             
+        }
+    </style>
+    {% include 'brands/navbar.html' %}
+
+    <div class="container">
+        
+         <div class="profile-details">
+            <div class="left">
+                <h2>{{user_data.person.first_name}} {{user_data.person.last_name}}</h2>
+                <h6>Email Verify : {{user_data.person.email_verified}} </h6>
+                <h6>contact number : {{user_data.person.contact_number}} </h6>
+                <h6>Gender : {{user_data.person.gender}} </h6>
+                <h6>Country name : {{user_data.person.country_name}} </h6>
+            </div>
+            <div class="right">
+                <h1>USer some Data</h1>
+            </div>
+         </div>
+         <div class="social-account">
+
+
+            <div class="card youtube-box" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">YouTube</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">youtube subscriber {{user_data.youtube_subscriber}}</h6>
+                  <p class="card-text">type of youtube {{user_data.type_of_youtube}}</p>
+                  <a href="{{ user_data.youtube_link }}" class="card-link">YouTube</a>
+                   
+                </div>
+            </div>
+            <div class="card youtube-box" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">instagram</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">instagram followers {{user_data.instagram_followers}}</h6>
+                  {% comment %} <p class="card-text">type of youtube {{user_data.type_of_youtube}}</p> {% endcomment %}
+                  <a href="{{ user_data.instagram_link }}" class="card-link">instagram</a>
+                   
+                </div>
+            </div>
+            
+            <div class="card youtube-box" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">YouTube</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">youtube subscriber {{user_data.youtube_subscriber}}</h6>
+                  <p class="card-text">type of youtube {{user_data.type_of_youtube}}</p>
+                  <a href="{{ user_data.youtube_link }}" class="card-link">YouTube</a>
+                   
+                </div>
+            </div>
+
+         </div>
+         <hr>
+         <div class="user-details mt-3">
+            <h4>Total Project You Apply:- {{project_count}}  <a href="{% url 'cretor_project_all' %}">See details</a></h4>
+
+         </div>
+    </div>
+
+     
+{% endblock main_contains %}

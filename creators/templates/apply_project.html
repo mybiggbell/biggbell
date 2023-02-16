@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block main_contains %}
+    <style>
+        *{
+            background-color : #f6f7fa;
+            color:#13253a;
+        }
+        .center-button{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+    </style>
+    {% include 'navbar.html' %}
+
+    <div class="container">
+        
+        <div class="apply-main">
+            <h2>{{project.project_name}}</h2>
+            <h4>company name:- {{project.project_brand.company_name}}</h4>
+            <div class="d-flex">
+                <h4>company profile link:- </h4> <a href="{{project.project_brand.company_profile_link}}"> {{project.project_brand.company_profile_link}}</a>
+            </div>
+            <h5>Company Mail:- {{project.project_brand.company_official_email}}</h5>
+            <h5 class="card-title">Total Cost:- {{project.total_cost}}</h5>
+            <br>
+            <h6 class="card-text">Details {{project.detail_about_project}}</h6>
+            <br>
+            <a href="{{project.project_file.url}}" class="btn btn-primary">Check It</a>
+             
+           <div class="center-button">
+            <form action="./" method="post">
+                {% csrf_token %}
+                
+                {% if is_already_approval %}
+                    <input class="btn btn-danger btn-lg" type="submit" style="margin-top: 5%;
+                    height: 10%;
+                    width: 15%;
+                    margin-left: 45%" value="Apply is Done" disabled>
+                {% else %}
+                    <div class="mb-3 mt-4">
+                        <label for="exampleFormControlTextarea1" class="form-label">Write Some about You , it Better for Selection Process*</label>
+                        <textarea class="form-control" name="creator_note" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <input class="btn btn-danger btn-lg" type="submit" style="margin-top: 5%;
+                    height: 10%;
+                    width: 15%;
+                    margin-left: 45%" value="Apply">
+                {% endif %}
+                
+               </div>
+                
+            </form>
+        </div>
+
+    </div>
+
+     
+{% endblock main_contains %}
