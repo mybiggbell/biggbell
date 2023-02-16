@@ -73,7 +73,8 @@ def success(request):
         return render(request, 'brands/payment.html')
     print(project)
     project.paid = True
-    project.save()
+    
+    project.save() 
     return render(request, 'brands/payment.html',{'is_done':True}) 
 
 
