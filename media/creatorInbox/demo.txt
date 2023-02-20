@@ -1,0 +1,67 @@
+<div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                <input type="email" name='email' class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">first Name</label>
+                <input type="text" name='first_name' class="form-control" id="exampleFormControlInput1" placeholder="jonh">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Last Name</label>
+                <input type="text" name='last_name' class="form-control" id="exampleFormControlInput1" placeholder="">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">contact number</label>
+                <input type="number" name='contact_number' class="form-control" id="exampleFormControlInput1" placeholder="12345">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">password</label>
+                <input type="password" name='password' class="form-control" id="exampleFormControlInput1" placeholder="">
+            </div>
+            {% comment %} Creator model {% endcomment %}
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">youtube_link</label>
+                <input type="url" name='youtube_link' class="form-control" id="exampleFormControlInput1" placeholder="youtube.com/channel-name">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">instagram_link</label>
+                <input type="url" name='instagram_link' class="form-control" id="exampleFormControlInput1" placeholder="">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">linkedin_link</label>
+                <input type="url" name='linkedin_link' class="form-control" id="exampleFormControlInput1" placeholder="">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">type_of_youtube</label>
+                <input type="text" name='type_of_youtube' class="form-control" id="exampleFormControlInput1" placeholder="Sport,eduaction">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">youtube subscriber Count</label>
+                <input type="number" name='youtube_subscriber' class="form-control" id="exampleFormControlInput1" placeholder="2333">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">instagram followers count</label>
+                <input type="number" name='instagram_followers' class="form-control" id="exampleFormControlInput1" placeholder="">
+            </div>
+            
+            <div class="mb-3">
+                <select class="form-select" name='gender' aria-label="Default select example">
+                    <option selected>Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">..</option>
+                  </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">country name</label>
+                <input type="text" name='country_name' class="form-control" id="exampleFormControlInput1" placeholder="INR Thousand">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">low Budget</label>
+                <input type="number" name='low_Budget' class="form-control" id="exampleFormControlInput1" placeholder="INR Thousand">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">high Budget</label>
+                <input type="number" name='high_Budget' class="form-control" id="exampleFormControlInput1" placeholder="INR Thousand">
+            </div>

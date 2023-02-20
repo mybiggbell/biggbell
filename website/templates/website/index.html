@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block main_contains %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <style>
         .main_post{
             height: 90vh;
@@ -49,6 +50,46 @@
             margin-top: 2%;
             width: 75%;
         }
+        .meeting{
+            padding: 5rem 0;
+            border-radius: 4px;
+            background-color: #020840;
+            width: 70%;
+            margin-left: 15%;
+            color: white;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .left-text-meeting{
+            background-color: #020840;
+            color: #fbfcff;
+            font-size: 2.625rem;
+            font-weight: bold;
+            margin-bottom: 16px;
+            font-family: sans-serif;
+        }
+        .right-text-meeting{
+            background-color: #020840;
+            color: #fbfcff;
+            font-size: 2.625rem;
+            font-weight: bold;
+            margin-bottom: 16px;
+            font-family: sans-serif;
+        }
+        .ceo-details{
+            background-color:#27a7c3
+            padding: 15%;
+            margin: 5%;
+            display: flex;
+        }
+        .qps-1-box{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin-top: 2%;
+            font-weight: bold;
+            font-size: large;
+        }
     </style>
     {% include 'website/navBar1.html' %}
     <div class="main_post d-flex" style="background-color: #FFFFFF;">
@@ -60,6 +101,10 @@
                 <li>World's largest freelance marketplace</li>
                 <li>Any job you can possibly think of</li>
                 <li>Save up to 90% & get quotes for free</li>
+                <p class="email-text" style="text-decoration: none;
+                font-size: larger;
+                font-weight: bold;
+                text-decoration-style: dashed;">Support: domain.biggbell@gmail.com</p>
                 <div class="two-btn">
                     <a class="btn btn-success" style="background-color:#2277FF" href="{% url 'brands_register' %}">Brands Register</a>
                     <a class="btn btn-success" href="{% url 'creator_register' %}">Creator Register</a>
@@ -86,5 +131,34 @@
                 Join us today and take your influencer marketing to the next level!</p>
         </div>
     </div>
+    <div class="meeting">
+        <div class="left-text-meeting">Let't Talk with us . </div>
+        <div class="right-text-meeting"><a href="https://calendly.com/biggbell/30min" class="btn btn-success btn-lg">Set Meeting</a></div>
+    </div>
+    {% comment %} <div class="ceo-details">
+        <div class="left-img">
+            <img src="" alt="">
+        </div>
+        <div class="right-text">
+            We envision a connected Influencer ecosystem. By that, we mean not looking at Influencers as "Vehicles of Reach" or "Human Ad Banners" but a world where Brands and Marketers forge tighter relationships with influencers, beyond "money" or "reach".
+
+            And thats why... Qoruz Search is totally free for end-users. You can use our Influencer search engine without time limits.
+
+            No tricks. No gimmicks
+        </div>
+    </div> {% endcomment %}
+    <div class="close-1">
+        <div class="qps-1-box"> hello everuyon 
+            <a   data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><span class="material-symbols-outlined">
+                open_in_full
+                </span></a>
+            </div>
+            <div class="collapse multi-collapse container" id="multiCollapseExample1">
+                <div class="card card-body">
+                  Some placeholder content for the first collapse component of this multi-collapse example. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                </div>
+              </div>
+    </div>
+    
 
 {% endblock main_contains %}

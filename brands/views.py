@@ -1,9 +1,11 @@
 from django.shortcuts import render , redirect , HttpResponseRedirect
-from userauth.models import Creator , Brand
+from userauth.models import Creator , Brand , MyUser
+from creators.models import CreatorInbox
 from .models import Project , Project_Approval
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 import razorpay
+
 # Create your views here.
 
 
@@ -119,9 +121,17 @@ def complete_done(request,id):
 def creator_profile_for_brand(request , id):
     context = {}
     context['user_data'] = Creator.objects.get(id=id)
-    print(context['user_data'])
-    # context['project_count'] = Project_Approval.objects.filter(creator=context['user_data']).count()
-    # print(context['project_count'])
+    print(Brand.objects.get(person=request.user))
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        user_file = request.FILES.get('user_file')
+        description = request.POST.get('description')
+        print(email)
+        print(user_file)
+        print(description)
+
+        data = CreatorInbox(creator=context['user_data'],brand=Brand.objects.get(person=request.user),email=email,file=user_file,description=description,isseen=False)
+        data.save()
     return render(request,'brands/creator_profile_brand.html',context)
 
 @login_required(login_url='login_user')

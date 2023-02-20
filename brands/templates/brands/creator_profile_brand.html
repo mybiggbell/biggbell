@@ -4,10 +4,7 @@
 
 {% block main_contains %}
     <style>
-        *{
-            background-color : #f6f7fa;
-            color:#13253a;
-        }
+
         .social-account{
             display:flex;
             justify-content: space-around;
@@ -32,7 +29,10 @@
                 <h6>Country name : {{user_data.person.country_name}} </h6>
             </div>
             <div class="right">
-                <h1>Rating:- 5</h1> 
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Contact Me
+                </button>
+            
             </div>
          </div>
          <div class="social-account">
@@ -72,5 +72,41 @@
           
     </div>
 
-     
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="./" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">Default file/Document</label>
+                        <input class="form-control" name="user_file" type="file" id="formFile">
+                    </div>
+
+                    <div class="form-floating">
+                        <textarea class="form-control" name="description" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <label for="floatingTextarea2">Description</label>
+                    </div>
+                    
+                      <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary">Save changes</button>
+                      </div>
+                </form>
+            </div>
+        </div>
+        </div>
+    </div>
 {% endblock main_contains %}

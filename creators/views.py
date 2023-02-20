@@ -1,14 +1,22 @@
-from django.shortcuts import render
+from django.shortcuts import render , redirect
 from brands.models import Project , Project_Approval 
+from creators.models import CreatorInbox
 from userauth.models import Creator
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 @login_required(login_url='login_user')
 def creator_dashboard(request):
+    nofication = CreatorInbox.objects.filter(creator=Creator.objects.get(person=request.user),isseen=False)
     context = {}
+    context['nofications'] = nofication
+    context['noficationCount'] = nofication.count()
     projects = Project.objects.all()
-    print(projects)
+    if request.method=='POST' and request.POST.get("form_type") =='notifications_close':
+        for nofi in context['nofications']:
+            nofi.isseen =True
+            nofi.save()
+        return redirect('./')
     context['projects'] = projects
     return render(request,'creator_dashboard.html' , context)
 
