@@ -34,7 +34,7 @@ def creator_register(request):
     context = {}
     context['register_form'] = UserRegistration() 
     if request.method == 'POST':
-        print("===========")
+        
         fm1 = UserRegistration(request.POST)
         if fm1.is_valid():
             user = fm1.save()
