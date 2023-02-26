@@ -92,7 +92,7 @@ def brands_register(request):
     else:
         print("get")
    
-    return render(request,'creator-register.html',context)
+    return render(request,'brand-register.html',context)
 
 def next_register_brand(request):
     context = {} 

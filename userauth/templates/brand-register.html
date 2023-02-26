@@ -1,5 +1,69 @@
 {% extends 'base.html' %}
-
+{% load static %}
+{% block title %} register{% endblock title %}
 {% block main_contains %}
-    <h1>register</h1>
+<div class="container">
+ <div class="row my-3">
+  <div class="col-sm-6 offset-sm-3">
+      <h3>Register</h3>
+      <hr>
+      <form action="" method="post" novalidate class="shadow p-5" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for fm in register_form %}
+        <div class="form-group">
+        {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small> <br>
+      </div>
+     {% endfor %}
+     
+     
+     {% comment %} <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">youtube link</label>
+        <input type="url" name='youtube_link' class="form-control" id="exampleFormControlInput1" placeholder="youtube.com/xyz">
+    </div>
+     <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">instagram link</label>
+        <input type="url" name='instagram_link' class="form-control" id="exampleFormControlInput1" placeholder="instagram.com/xyz">
+    </div>
+     <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">linkedin link</label>
+        <input type="url" name='linkedin_link' class="form-control" id="exampleFormControlInput1" placeholder="linkedin.com/xyz">
+    </div>
+     <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">type of youtube</label>
+        <input type="text" name='type_of_youtube' class="form-control" id="exampleFormControlInput1" placeholder="Ex. Sport">
+    </div>
+     <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">youtube subscriber</label>
+        <input type="number" name='youtube_subscriber' class="form-control" id="exampleFormControlInput1" placeholder="1000">
+    </div>
+     <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">instagram followers</label>
+        <input type="number" name='instagram_followers' class="form-control" id="exampleFormControlInput1" placeholder="1000">
+    </div>
+     <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">low Budget</label>
+        <input type="number" name='low_Budget' class="form-control" id="exampleFormControlInput1" placeholder="INR 10000">
+    </div>
+     
+     <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">high Budget</label>
+        <input type="number" name='high_Budget' class="form-control" id="exampleFormControlInput1" placeholder="INR 10000">
+    </div> {% endcomment %}
+     
+
+
+     <input type="submit" class="btn btn-primary mt-4" value="Login">
+     <br>
+     <div class="text-center text-primary fw-bold"><small>already have account ? <a href="{% url 'login_user' %}" class="text-danger">Login</a> </small></div>
+		 
+     {% if form.non_field_errors %}
+      {% for error in form.non_field_errors %}
+       <p class="alert alert-danger my-3">{{error}}</p>
+      {% endfor %}
+     {% endif %}
+    </form>
+  </div>
+ </div>
+</div>
 {% endblock main_contains %}
+Footer

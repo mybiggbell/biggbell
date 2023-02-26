@@ -5,7 +5,7 @@
 <div class="container">
  <div class="row my-3">
   <div class="col-sm-6 offset-sm-3">
-      <h3>register</h3>
+      <h3>Register</h3>
       <hr>
       <form action="" method="post" novalidate class="shadow p-5">
         {% csrf_token %}
@@ -54,7 +54,7 @@
 
      <input type="submit" class="btn btn-primary mt-4" value="Login">
      <br>
-     <div class="text-center text-primary fw-bold"><small>already have account ? <a href="#" class="text-danger">Login</a> </small></div>
+     <div class="text-center text-primary fw-bold"><small>already have account ? <a href="{% url 'login_user' %}" class="text-danger">Login</a> </small></div>
 		 
      {% if form.non_field_errors %}
       {% for error in form.non_field_errors %}

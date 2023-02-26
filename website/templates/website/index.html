@@ -90,6 +90,23 @@
             font-weight: bold;
             font-size: large;
         }
+        .button-container {
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .button-container > a {
+            padding: 12px 24px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            margin: 0 10px;
+            cursor: pointer;
+            text-decoration: none;
+          }
     </style>
     {% include 'website/navBar1.html' %}
     <div class="main_post d-flex" style="background-color: #FFFFFF;">
@@ -105,7 +122,7 @@
                 font-size: larger;
                 font-weight: bold;
                 text-decoration-style: dashed;">Support: domain.biggbell@gmail.com</p>
-                <div class="two-btn">
+                <div class="two-btn button-container">
                     <a class="btn btn-success" style="background-color:#2277FF" href="{% url 'brands_register' %}">Brands Register</a>
                     <a class="btn btn-success" href="{% url 'creator_register' %}">Creator Register</a>
                 </div>
@@ -148,7 +165,7 @@
         </div>
     </div> {% endcomment %}
     <div class="close-1">
-        <div class="qps-1-box"> hello everuyon 
+        <div class="qps-1-box"> hello everyone 
             <a   data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><span class="material-symbols-outlined">
                 open_in_full
                 </span></a>
